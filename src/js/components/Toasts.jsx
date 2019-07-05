@@ -7,9 +7,16 @@ import { removeToast } from "../actions";
 
 const Toasts = ({ actions, toasts }) => {
   const { removeToast } = actions;
-  console.log(toasts);
-console.log(toasts.toastList);
-return null;
+  return (
+    <ul className="toasts">
+      {toasts.map(toast => {
+        const { id } = toast;
+        return (
+          <Toast {...toast} key={id} onDismissClick={() => removeToast(id)} />
+        );
+      })}
+    </ul>
+  );
 };
 
 Toasts.propTypes = {
@@ -24,7 +31,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  toasts: state.toastsReducer
+  toasts: state.toastsReducer.toastList
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Toasts);

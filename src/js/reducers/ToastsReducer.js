@@ -10,7 +10,7 @@ export default function toasts(state = initialState, action) {
 
   switch (type) {
     case ADD_TOAST:
-      return [...state.toastList, payload];
+      return { toastList: [...state.toastList, payload] }
 
     case REMOVE_TOAST:
       return state.toastList.filter(toast => toast.id !== payload);
