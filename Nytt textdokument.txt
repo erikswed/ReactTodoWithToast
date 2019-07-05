@@ -1,0 +1,3 @@
+https://www.valentinog.com/blog/redux/
+
+Bra tutorial on React Redux
